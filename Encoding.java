@@ -1,5 +1,3 @@
-package hw1;
-
 import java.util.Set;
 import java.util.TreeSet;
 
