@@ -1,0 +1,12 @@
+Your name: Adam Zhu
+Your student ID: 013637559
+Your major: Computer Science
+Your preferred email address: adam.zhu@sjsu.edu
+Check one: [x] Undergraduate, [ ] Graduate, [ ] Open university 
+Repeating the class? [ ] Yes, [x] No
+Place and semester where you took a programming course in Java: AP Computer Science A in high school
+Course number and grade received: 5 on AP Exam
+Place and semester where you took a course in data structures: SJSU Fall 2018
+Course number and grade received: CS 46B / A
+Time it took you to answer the two questions below: 40 mins
+Did you ask anyone for help? [ ] Yes, [x] No
