@@ -4,7 +4,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class ActionTester
+public class ZoomTester
 {
    public static void main(String[] args)
    {
