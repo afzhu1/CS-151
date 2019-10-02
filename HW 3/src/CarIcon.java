@@ -16,6 +16,14 @@ public class CarIcon implements Icon
       width = aWidth;
    }
    
+   public void zoomIn() {
+	   width = width * 2;
+   }
+   
+   public void zoomOut() {
+	   width = width / 2 ;
+   }
+   
    public int getIconWidth()
    {
       return width;

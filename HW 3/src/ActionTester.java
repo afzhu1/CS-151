@@ -1,9 +1,5 @@
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-import java.awt.Color;
 import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,24 +16,33 @@ public class ActionTester
 
       JButton zoomIn = new JButton("Zoom in");
 
-      zoomIn.addActionListener(event ->
-         textField.setText("Hello, World!"));
+   
 
       JButton zoomOut = new JButton("Zoom out");
 
-      goodbyeButton.addActionListener(event ->
-         textField.setText("Goodbye, World!"));
-      CarIcon car = new carIcon(100);
-      JLabel car = new JLabel(car);
+    
+      CarIcon car = new CarIcon(1000);
+      JLabel carLabel = new JLabel(car);
+      
+      zoomIn.addActionListener(event -> car.zoomIn()
+    	         );
+      zoomOut.addActionListener(event -> car.zoomOut()
+    	         );
       
       frame.setLayout(new FlowLayout());
 
-      frame.add(helloButton);
-      frame.add(goodbyeButton);
-      frame.add(textField);
+      frame.add(zoomIn);
+      frame.add(zoomOut);
+      frame.add(carLabel);
 
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.pack();
       frame.setVisible(true);
+      
+      Timer t = new Timer(100, event ->
+      {
+         carLabel.repaint();
+      });
+      t.start();
    }
 }
