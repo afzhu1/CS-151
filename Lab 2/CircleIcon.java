@@ -38,13 +38,8 @@ public class CircleIcon implements Icon {
 		g2.fill(planet);
 	}
 
-	public void paintIcon(Component c, Graphics g, int x, int y, Color color) {
-		Graphics2D g2 = (Graphics2D) g;
-		this.c = c;
-		this.g = g2;
-		Ellipse2D.Double planet = new Ellipse2D.Double(x, y, size, size);
-		g2.setColor(color);
-		g2.fill(planet);
+	public void setColor(Color color) {
+		this.color = color;
 	}
 
 	private Color color;

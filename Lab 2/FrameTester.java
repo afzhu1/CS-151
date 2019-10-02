@@ -4,6 +4,7 @@ import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.Timer;
 
 public class FrameTester {
 	public static void main(String[] args) {
@@ -15,14 +16,11 @@ public class FrameTester {
 		CircleIcon circle = new CircleIcon(50, Color.RED);
 		JLabel label = new JLabel(circle);
 
-		redButton.addActionListener(event -> circle.paintIcon(circle.c, circle.g, circle.getIconHeight(),
-				circle.getIconWidth(), Color.RED));
+		redButton.addActionListener(event -> circle.setColor(Color.RED));
 
-		blueButton.addActionListener(event -> circle.paintIcon(circle.c, circle.g, circle.getIconHeight(),
-				circle.getIconWidth(), Color.BLUE));
+		blueButton.addActionListener(event -> circle.setColor(Color.BLUE));
 
-		greenButton.addActionListener(event -> circle.paintIcon(circle.c, circle.g, circle.getIconHeight(),
-				circle.getIconWidth(), Color.GREEN));
+		greenButton.addActionListener(event -> circle.setColor(Color.GREEN));
 
 		frame.setLayout(new FlowLayout());
 
@@ -34,6 +32,10 @@ public class FrameTester {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
 		frame.setVisible(true);
-
+		Timer t = new Timer(100, event ->
+	      {
+	         label.repaint();
+	      });
+	      t.start();
 	}
 }
