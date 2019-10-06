@@ -22,4 +22,7 @@ public interface InvoiceFormatter
       @return the invoice footer
    */
    String formatFooter();
+  
+		void update(LineItem item);
+   
 }

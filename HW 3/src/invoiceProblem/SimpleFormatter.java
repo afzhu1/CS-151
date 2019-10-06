@@ -1,11 +1,16 @@
 package invoiceProblem;
-
+import java.util.HashMap; 
 
 /**
 A simple invoice formatter.
 */
 public class SimpleFormatter implements InvoiceFormatter
 {
+	HashMap<LineItem, Integer> items;
+	
+	public SimpleFormatter() {
+		 items  = new HashMap<>();
+	}
 	
 public String formatHeader()
 {
@@ -15,12 +20,43 @@ public String formatHeader()
 
 public String formatLineItem(LineItem item)
 {
+	Integer count = items.get(item);
    total += item.getPrice();
+  
+
+   
+   if (count == null) { 
+	   items.put(item, 1);
+	   
+   } else { 
+	   items.put(item, count + 1);
+   }
    
    
-   return (String.format(
-         "%s: $%.2f",item.toString(),item.getPrice()));
-}
+	   return (String.format("%s: $%.2f    x%d  \n",item.toString(),item.getPrice(), items.get(item)));
+    
+   }
+
+
+public void update(LineItem item)
+{
+	Integer count = items.get(item);
+   total += item.getPrice();
+  
+
+   
+   if (count == null) { 
+	   items.put(item, 1);
+	   
+   } else { 
+	   items.put(item, count + 1);
+   }
+   
+   
+    
+   }
+
+
 
 public String formatFooter()
 {

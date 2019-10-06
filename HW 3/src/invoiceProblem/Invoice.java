@@ -8,7 +8,7 @@ import javax.swing.event.*;
 public class Invoice
 {
 	
-	HashMap itemCounts;
+	
 	
    /**
       Constructs a blank invoice.
@@ -17,7 +17,7 @@ public class Invoice
    {
       items = new ArrayList<>();
       listeners = new ArrayList<>();
-      itemCounts = new HashMap();
+      //printed = new ArrayList<>();
    }
 
   /**
@@ -26,13 +26,10 @@ public class Invoice
    */
    public void addItem(LineItem item)
    {
-      // DO HASHMAP STUFF HERE
+      
 	   
 	   
 	   items.add(item);
-      if(itemCounts.containsKey(item)) {
-    	  
-      }
       // Notify all observers of the change to the invoice
       ChangeEvent event = new ChangeEvent(this);
       for (ChangeListener listener : listeners)
@@ -78,13 +75,27 @@ public class Invoice
 
    public String format(InvoiceFormatter formatter)
    {
+	   
+	  ArrayList<String> printed = new ArrayList<>();
       String r = formatter.formatHeader();
+      
+      
       Iterator<LineItem> iter = getItems();
-      while (iter.hasNext())
-         r += formatter.formatLineItem(iter.next());
+      while (iter.hasNext()) {
+    	  LineItem current = iter.next();
+    	  if (printed.contains(current.toString())) { //if item has already been printed, just update
+    		  formatter.update(current);
+    	  } else { //else add the item to the final string
+    		  r += formatter.formatLineItem(current);
+    		  printed.add(current.toString());
+
+    	  }
+    	 
+      }
       return r + formatter.formatFooter();
    }
 
    private ArrayList<LineItem> items;
    private ArrayList<ChangeListener> listeners;
+   
 }
