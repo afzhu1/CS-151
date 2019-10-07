@@ -16,6 +16,9 @@ double getPrice();
 */   
 String toString();
 
+int hashCode();
+
+boolean equals(Object obj);
 
 
 }

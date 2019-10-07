@@ -1,4 +1,7 @@
 package invoiceProblem;
+
+import java.util.HashMap;
+
 /**
    This interface describes the tasks that an invoice
    formatter needs to carry out.
@@ -24,5 +27,5 @@ public interface InvoiceFormatter
    String formatFooter();
   
 		void update(LineItem item);
-   
+		HashMap<LineItem, Integer> getHashmap();
 }

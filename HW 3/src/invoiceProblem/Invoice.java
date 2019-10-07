@@ -75,7 +75,7 @@ public class Invoice
 
    public String format(InvoiceFormatter formatter)
    {
-	   
+
 	  ArrayList<String> printed = new ArrayList<>();
       String r = formatter.formatHeader();
       
