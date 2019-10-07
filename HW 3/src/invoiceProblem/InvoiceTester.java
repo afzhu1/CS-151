@@ -15,7 +15,9 @@ public class InvoiceTester
       final InvoiceFormatter formatter = new SimpleFormatter();
 
       // This text area will contain the formatted invoice
-      final JTextArea textArea = new JTextArea(20, 40);
+      final JTextPane textArea = new JTextPane();
+      textArea.setContentType("text/html");
+
 
       // When the invoice changes, update the text area
       invoice.addChangeListener(event ->
