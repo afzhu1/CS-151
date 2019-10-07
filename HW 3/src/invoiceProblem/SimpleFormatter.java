@@ -8,8 +8,6 @@ public class SimpleFormatter implements InvoiceFormatter {
 	public String formatHeader() {
 		total = 0;
 
-		//return "     I N V O I C E\n\n\n";
-
 		String invoiceHeader = new String("<b><h1 style = 'color: red'; align = 'center' >"
 										+ "<font size='+64'> " + "INVOICE" + "</font>"
 										+ "</h1></b><br><br><br>");  
