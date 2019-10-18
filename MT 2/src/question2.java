@@ -20,7 +20,8 @@ public class question2
 
       JButton animateButton = new JButton("Animate");
       
-      animateButton.addActionListener(event -> scene.toggleAnimation());
+      animateButton.addActionListener(event -> 
+      scene.toggleAnimation());
 
       JButton carButton = new JButton("Car");
       carButton.addActionListener(new

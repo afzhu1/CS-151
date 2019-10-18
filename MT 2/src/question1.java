@@ -34,27 +34,36 @@ public class question1
 
       
       
-      busButton.addActionListener(event -> frame.remove(carLabel)
+      busButton.addActionListener(event -> 
+      {
+    	  frame.remove(carLabel);
+    	  frame.add(busLabel);
+      }
   	         ); // if we press the busButton, we will always remove the car
+      			// we will also add the bus
       
-      busButton.addActionListener(event -> frame.add(busLabel)
-   	         ); // we will also add the bus
+      carButton.addActionListener(event ->
+      {
+    	  frame.remove(busLabel);
+    	  frame.add(carLabel);
       
-      carButton.addActionListener(event -> frame.remove(busLabel)
-   	         ); //same logic for car, but flipped
-       carButton.addActionListener(event -> frame.add(carLabel)
-    	         );
+      } ); //same logic for car, but flipped
+   
       
        
        // we will keep the labels in sync in regard to how much zooming occurs
-       zoomIn.addActionListener(event -> bus.zoomIn()
-  	         );
-    zoomOut.addActionListener(event -> bus.zoomOut()
-  	         );
-    zoomIn.addActionListener(event -> car.zoomIn()
- 	         );
-   zoomOut.addActionListener(event -> car.zoomOut()
- 	         );
+       zoomIn.addActionListener(event -> 
+       {
+    	   bus.zoomIn();
+    	   car.zoomIn();
+       });
+       
+       zoomOut.addActionListener(event ->
+       {
+    	   bus.zoomOut();
+    	   car.zoomOut();
+    	});
+    
    
        
        frame.setDefaultCloseOperation(JFrame. EXIT_ON_CLOSE);
