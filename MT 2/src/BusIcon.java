@@ -44,7 +44,21 @@ public class BusIcon implements Icon {
 	            = new Point2D.Double(x + width / 6, y + width / 6);
 	      // The front of the roof
 	      Point2D.Double r2
-	            = new Point2D.Double(x + width / 3, y);
+	            = new Point2D.Double(x + width / 6, y);
+	      
+	      // The bottom of the front Window
+	      Point2D.Double r5
+	      		= new Point2D.Double(x + width / 3, y + width / 6);
+	      // The top of the front window
+	      Point2D.Double r6
+    		= new Point2D.Double(x + width / 3, y);
+	      // The bottom of the middle window
+	      Point2D.Double r7
+    		= new Point2D.Double(x + width / 1.5, y + width / 6);
+	      // The top of the middle window
+	      Point2D.Double r8
+	      	= new Point2D.Double(x + width / 1.5, y);
+	      
 	      // The rear of the roof
 	      Point2D.Double r3
 	      	= new Point2D.Double(x + width-1 , y);
@@ -58,6 +72,11 @@ public class BusIcon implements Icon {
 	            = new Line2D.Double(r2, r3);
 	      Line2D.Double rearWindshield
 	            = new Line2D.Double(r3, r4);
+	      
+	      Line2D.Double frontWindow
+	      		= new Line2D.Double(r5, r6);
+	      Line2D.Double middleWindow
+          		= new Line2D.Double(r7, r8);
 
 	      g2.fill(frontTire);
 	      g2.fill(rearTire);
@@ -66,6 +85,9 @@ public class BusIcon implements Icon {
 	      g2.draw(frontWindshield);
 	      g2.draw(roofTop);
 	      g2.draw(rearWindshield);
+	      g2.draw(frontWindow);
+	      g2.draw(middleWindow);
+
 	   }
 
 	   private int width;

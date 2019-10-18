@@ -88,7 +88,7 @@ public class SceneComponent extends JComponent
       }
    }
    
-   public void moveSelected() {
+   public void moveSelected() { //moves all selected shapes by incrementing their x value
 		   for (SceneShape s : shapes)
 	       {
 	          if (s.isSelected())
@@ -100,7 +100,7 @@ public class SceneComponent extends JComponent
 	    
 	   
    }
-	     
+	     // this method toggles animation on or off by setting true or false
    public void toggleAnimation() {
 	   if (animated == false) {
 		   animated = true;
@@ -109,10 +109,10 @@ public class SceneComponent extends JComponent
 	   }
    }
    
-   
+   //animated getter method
    public boolean isAnimated() {
 	   return animated;
-   }
+   } 
 
    private ArrayList<SceneShape> shapes;
    private Point mousePoint;

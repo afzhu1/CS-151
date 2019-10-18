@@ -24,9 +24,6 @@ public class question1
       
       
       
-
-      
-      
       frame.setLayout(new FlowLayout());
 
       frame.add(carButton);
@@ -38,15 +35,18 @@ public class question1
       
       
       busButton.addActionListener(event -> frame.remove(carLabel)
-  	         );
+  	         ); // if we press the busButton, we will always remove the car
+      
       busButton.addActionListener(event -> frame.add(busLabel)
-   	         );
+   	         ); // we will also add the bus
       
       carButton.addActionListener(event -> frame.remove(busLabel)
-   	         );
+   	         ); //same logic for car, but flipped
        carButton.addActionListener(event -> frame.add(carLabel)
     	         );
       
+       
+       // we will keep the labels in sync in regard to how much zooming occurs
        zoomIn.addActionListener(event -> bus.zoomIn()
   	         );
     zoomOut.addActionListener(event -> bus.zoomOut()
@@ -55,6 +55,7 @@ public class question1
  	         );
    zoomOut.addActionListener(event -> car.zoomOut()
  	         );
+   
        
        frame.setDefaultCloseOperation(JFrame. EXIT_ON_CLOSE);
        frame.pack();
@@ -62,6 +63,7 @@ public class question1
        
       Timer t = new Timer(100, event ->
       {
+    	  // update constantly update labels and frame
          busLabel.repaint();
          carLabel.repaint();
          frame.revalidate();
