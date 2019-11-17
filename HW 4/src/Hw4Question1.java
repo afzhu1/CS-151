@@ -1,7 +1,7 @@
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class hw4 {
+public class Hw4Question1 {
 	
 	
 	 public static void main(String args[]) {
