@@ -35,9 +35,7 @@ public class hw4 {
 		 return () -> 
 		 {
 			 for(int i = 0; i < repetitions; i++) {
-				// System.out.println("Depositing: " + amt);
 				 account.deposit(amt);
-				 //System.out.println("Current Balance: " + amt);
 			 }
 		 };
 	 }
@@ -46,9 +44,7 @@ public class hw4 {
 		 return () -> 
 		 {
 			 for(int i = 0; i < repetitions; i++) {
-				// System.out.println("Withdrawing: " + amt);
 				 account.withdraw(amt);
-				// System.out.println("Current Balance: " + amt);
 			 }
 		 };
 	 }
@@ -61,18 +57,12 @@ public class hw4 {
 	 }
 	 
 	 
-	 
-	 
-	 
-	 
 	 public static Runnable depositer(lockedBank account, float amt, int repetitions) {
 		 return () -> 
 		 {
 			 try {
 				 for(int i = 0; i < repetitions; i++) {
-					 // System.out.println("Depositing: " + amt);
 					 account.deposit(amt);
-					 //System.out.println("Current Balance: " + amt);
 				 }
 			 } catch (InterruptedException exception) {
 				 
@@ -85,9 +75,7 @@ public class hw4 {
 		 {
 			 try {
 				 for(int i = 0; i < repetitions; i++) {
-					 // System.out.println("Withdrawing: " + amt);
 					 account.withdraw(amt);
-					 // System.out.println("Current Balance: " + amt);
 				 }
 			 } catch (InterruptedException exception) {
 				 
