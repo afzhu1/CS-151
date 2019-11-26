@@ -18,7 +18,11 @@ public class DumpClass {
 		}else {
 			System.out.println("Package Name: " + "\n	" + classPackage.toString());
 		}
+		if(input.getSuperclass() == null) {
+			System.out.println("Superclass: ");
+		}else {
 		System.out.println("Superclass: " + "\n	" + input.getSuperclass());
+		}
 		System.out.println("Constructors: ");
 		
 		System.out.println("Fields: ");
@@ -53,7 +57,11 @@ public class DumpClass {
 		}else {
 			System.out.println("Package Name: " + "\n	" + classPackage.toString());
 		}
+		if(classType.getSuperclass() == null) {
+			System.out.println("Superclass: ");
+		}else {
 		System.out.println("Superclass: " + "\n	" + classType.getSuperclass());
+		}
 		System.out.println("Fields: ");
 		for(Field f: fields) {
 			System.out.println("	" + f.toString());
