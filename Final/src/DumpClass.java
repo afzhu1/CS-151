@@ -6,17 +6,18 @@ public class DumpClass {
 	
 	
 	public static void dumpClass(Class input) {
-		//Class input = input.getClass();
 		Class[] classInterfaces = input.getInterfaces();
-		Package classPackage = input.getPackage();
-		String packageName = classPackage.getName();
+		Package classPackage = input.getPackage();	
 		Field[] fields = input.getDeclaredFields();
 		Constructor[] constructors = input.getDeclaredConstructors();
-		Method[] methods =  input.getDeclaredMethods();
-		
+		Method[] methods =  input.getDeclaredMethods();	
 		
 		System.out.println("Class Name: " + "\n	" + input);
-		System.out.println("Package Name: " + "\n	" + classPackage.toString());
+		if(classPackage == null) {
+			System.out.println("Package Name: " );
+		}else {
+			System.out.println("Package Name: " + "\n	" + classPackage.toString());
+		}
 		System.out.println("Superclass: " + "\n	" + input.getSuperclass());
 		System.out.println("Constructors: ");
 		
@@ -42,14 +43,16 @@ public class DumpClass {
 		Class classType = input.getClass();
 		Class[] classInterfaces = classType.getInterfaces();
 		Package classPackage = classType.getPackage();
-		String packageName = classPackage.getName();
 		Field[] fields = classType.getDeclaredFields();
 		Constructor[] constructors = classType.getDeclaredConstructors();
 		Method[] methods =  classType.getDeclaredMethods();
 		
-		
 		System.out.println("Class Name: " + "\n	" + classType);
-		System.out.println("Package Name: " + "\n	" + classPackage.toString());
+		if(classPackage == null) {
+			System.out.println("Package Name: " );
+		}else {
+			System.out.println("Package Name: " + "\n	" + classPackage.toString());
+		}
 		System.out.println("Superclass: " + "\n	" + classType.getSuperclass());
 		System.out.println("Fields: ");
 		for(Field f: fields) {
