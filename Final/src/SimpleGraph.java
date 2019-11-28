@@ -12,7 +12,6 @@ public class SimpleGraph extends Graph
          {
             new CircleNode(Color.BLACK),
             new CircleNode(Color.WHITE),
-            new CircleNode(Color.RED)
          };
       return nodeTypes;
    }
@@ -25,6 +24,16 @@ public class SimpleGraph extends Graph
          };
       return edgeTypes;
    }
+   
+   public Label[] getLabelPrototype() 
+   {
+	   Label[] labelTypes = 
+		   {
+				   new Label()
+	       };
+	   return labelTypes;
+	}
+   
 }
 
 
