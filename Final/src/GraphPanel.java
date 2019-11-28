@@ -18,8 +18,8 @@ public class GraphPanel extends JComponent
 
       toolBar = aToolBar;
       labelEdge = new JButton("Label");
-      labelEdge.setEnabled(false); // initially, no edges are selected
-      toolBar.add(labelEdge); // add button to toolbar
+      labelEdge.setEnabled(false); // disable button as no edges are selected
+      toolBar.add(labelEdge);
 
       graph = aGraph;
       setBackground(Color.WHITE);
@@ -60,8 +60,8 @@ public class GraphPanel extends JComponent
                   }
                }
                else if (tool instanceof Node) {
-                  selected.clear(); // Select option in toolbar is not selected
-                  labelEdge.setEnabled(false); //label button still not enabled
+                  selected.clear(); 
+                  labelEdge.setEnabled(false); 
 
                   Node prototype = (Node) tool;
                   Node newNode = (Node) prototype.clone();
@@ -115,19 +115,17 @@ public class GraphPanel extends JComponent
       addMouseMotionListener(new MouseMotionAdapter() {
             public void mouseDragged(MouseEvent event) {
 
-               // Identifying this node's travel so that we can make the other selected nodes move similarly
                Point2D mousePoint = event.getPoint();
                Node selectedNode = graph.findNode(mousePoint);
 
                if (dragStartBounds != null || selectedNode != null) {
-                  // Calculating the travel of the node being moved so that we can replicate it for all selected nodes
-                  Rectangle2D bounds = selectedNode.getBounds();
+            	  Rectangle2D bounds = selectedNode.getBounds();
                   double xOffset = dragStartBounds.getX() - bounds.getX() + mousePoint.getX() - dragStartPoint.getX();
                   double yOffset = dragStartBounds.getY() - bounds.getY() + mousePoint.getY() - dragStartPoint.getY();
 
-                  for(Object o : selected) {
-                     if (o instanceof Node) {
-                        Node n = (Node) o;
+                  for(Object selectedObj : selected) {
+                     if (selectedObj instanceof Node) {
+                        Node n = (Node) selectedObj;
                         n.translate(xOffset, yOffset);
                      }
                   }
@@ -142,10 +140,9 @@ public class GraphPanel extends JComponent
          String labelTextTrimmed = labelText.trim();
 
          if(labelTextTrimmed.length() != 0) {
-            for (Object o : selected) {
-               // Can only draw Labels/Annotations for edges
-               if (o instanceof Edge) {
-                  graph.addLabel(labelTextTrimmed, (Edge) o);
+            for (Object selectedObj : selected) {
+               if (selectedObj instanceof Edge) {
+                  graph.addLabel(labelTextTrimmed, (Edge) selectedObj);
                }
             }
             repaint();
@@ -160,19 +157,19 @@ public class GraphPanel extends JComponent
       Rectangle2D graphBounds = graph.getBounds(g2);
       graph.draw(g2);
 
-      for(Object o : selected) {
-         if (o instanceof Node) {
+      for(Object selectedObj : selected) {
+         if (selectedObj instanceof Node) {
             labelEdge.setEnabled(false);
-            Rectangle2D grabberBounds = ((Node) o).getBounds();
+            Rectangle2D grabberBounds = ((Node) selectedObj).getBounds();
             drawGrabber(g2, grabberBounds.getMinX(), grabberBounds.getMinY());
             drawGrabber(g2, grabberBounds.getMinX(), grabberBounds.getMaxY());
             drawGrabber(g2, grabberBounds.getMaxX(), grabberBounds.getMinY());
             drawGrabber(g2, grabberBounds.getMaxX(), grabberBounds.getMaxY());
          }
 
-         if (o instanceof Edge) {
+         if (selectedObj instanceof Edge) {
             labelEdge.setEnabled(true);
-            Line2D line = ((Edge) o).getConnectionPoints();
+            Line2D line = ((Edge) selectedObj).getConnectionPoints();
             drawGrabber(g2, line.getX1(), line.getY1());
             drawGrabber(g2, line.getX2(), line.getY2());
          }

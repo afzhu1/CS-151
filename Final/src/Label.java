@@ -23,8 +23,8 @@ public class Label {
 	    double y2 = line.getY2();
 	     
 	    //get midpoint
-	    float mX = (float) (x1 + x2) / 2;
-	    float mY = (float) (y1 + y2) / 2;
+	    int mX = (int)(x1 + x2) / 2;
+	    int mY = (int)(y1 + y2) / 2;
 	    g2.drawString(input, mX, mY);
 	}
 	
