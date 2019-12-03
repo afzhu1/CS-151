@@ -3,7 +3,7 @@ import javax.swing.*;
 /**
    A program for editing graphs.
 */
-public class SimpleGraphEditor
+public class Question2
 {
    public static void main(String[] args)
    {

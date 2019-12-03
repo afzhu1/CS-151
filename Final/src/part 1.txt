@@ -1,0 +1,15 @@
+Adam Zhu
+Student ID: 013637559
+
+Part 1
+7.1) The purpose of the void class is for reflection, which is why it is under the java.lang.reflect package. It is there for when one is trying to check an object's type. Even though void is not a "type", it still allows us to to see that the object is a void "type" and differentiate it from other types.
+
+9.1) It is not possible for both threads to be sleeping at the same time. The program's threads run parallel to each other and have their own start() method calls. This also implies that they will never both be running together, since one thread is being called upon at a time.
+
+9.2) A thread in a web browser may be used to load a web page and its various elements. If we are to leave the page, the threads building the page need to be terminated in order for us to process the next request.
+
+9.3) A thread that makes the sleep() call will take in a specified time parameter. This time parameter specifies how long the thread is to be active until it is terminated. This does not address any of the locks it holds when it is terminated. Await() is a conditional method, and will temporarily "wait" while the lock is modifying shared data. The holder of the lock will then make a signal() call to tell the await() call that it can proceed.
+
+9.4) If a thread makes an await() call, it will wait until it receives the signal() or signalAll() call. It will not proceed until it receives that call, and may be waiting forever.
+
+9.5) The program will not compile and will not function as intended. The condition object consists of an associated lock to the object and only has an await() method. Wait() can be called on a regular object, but calling wait() on a condition object instead of await will likely result in java throwing an exception. 
