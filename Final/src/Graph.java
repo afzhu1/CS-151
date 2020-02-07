@@ -16,6 +16,7 @@ public abstract class Graph implements Serializable
    {
       nodes = new ArrayList<>();
       edges = new ArrayList<>();
+      labels = new ArrayList<>();
    }
 
    /**
@@ -96,6 +97,9 @@ public abstract class Graph implements Serializable
       for (Edge e : edges)
          e.draw(g2);
 
+      for (Label l: labels) {
+    	  l.draw(g2);
+      }
    }
 
    /**
@@ -109,6 +113,7 @@ public abstract class Graph implements Serializable
          Edge e = edges.get(i);
          if (e.getStart() == n || e.getEnd() == n)
             edges.remove(e);
+         	removeLabel(e);
       }
       nodes.remove(n);
    }
@@ -120,6 +125,7 @@ public abstract class Graph implements Serializable
    public void removeEdge(Edge e)
    {
       edges.remove(e);
+      removeLabel(e);
    }
 
    /**
@@ -169,9 +175,35 @@ public abstract class Graph implements Serializable
    {
       return Collections.unmodifiableList(edges);
    }
+   
+   public List<Label> getLabels() { 
+	   return Collections.unmodifiableList(labels); 
+	   }
+   
+   public void addLabel(String input, Edge e) {
+	   for(Label toFind: labels) {
+		   if(toFind.getEdge().equals(e)) {
+			   toFind.setLabel(input);
+			   return;
+		   }
+	   }
+	   //label should be found if it exists, but if it does not
+	   Label newLabel = new Label(input, e);
+	   labels.add(newLabel);
+   }
+   
+   public void removeLabel(Edge e) {
+	   for(Label toRemove: labels) {
+		   if(toRemove.getEdge().equals(e)) {
+			   labels.remove(toRemove);
+			   return;
+		   }
+	   }
+   }
 
    private ArrayList<Node> nodes;
    private ArrayList<Edge> edges;
+   private ArrayList<Label> labels;
 }
 
 

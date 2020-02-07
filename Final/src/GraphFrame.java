@@ -60,19 +60,8 @@ public class GraphFrame extends JFrame
          });
       fileMenu.add(exitItem);
 
-      JMenuItem deleteItem = new JMenuItem("Delete");
-      deleteItem.addActionListener(new
-         ActionListener()
-         {
-            public void actionPerformed(ActionEvent event)
-            {
-               panel.removeSelected();
-            }
-         });
+      
 
-      JMenu editMenu = new JMenu("Edit");
-      editMenu.add(deleteItem);
-      menuBar.add(editMenu);
    }
 
    /**
